@@ -41,8 +41,8 @@
 		<div class="cont-menu">
 			<nav>
 				<a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
-				<a href="#"><i class="fa-solid fa-boxes-stacked"></i> Productos</a>
-				<a href="#"><i class="fa-regular fa-file-lines"></i> Boletas</a>
+				<a th:href="@{/producto/listado}"><i class="fa-solid fa-boxes-stacked"></i> Productos</a>
+				<a th:href="@{/boleta/listado}"><i class="fa-regular fa-file-lines"></i> Boletas</a>
 				<a href="#" id="cerrarSesionLink"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
 			</nav>
 			<label for="btn-menu"><i class="fa-solid fa-xmark"></i></label>
@@ -55,7 +55,7 @@
 		</div>
 	</main>
 
-	<script th:src="@{/js/validacion-bootstrap.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
 	<script>
 		$("#cerrarSesionLink").on("click", function () {
 			Swal.fire({
@@ -73,6 +73,9 @@
 			});
 		});
 	</script>
+	
+	<th:block th:utext="${alert}"></th:block>
+	<th:block th:utext="${toast}"></th:block>
 </body>
 
 </html>

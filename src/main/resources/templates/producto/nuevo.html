@@ -1,24 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layoutBase(~{::contenido})">
 
-<head>
-	<meta charset="UTF-8" />
-	<title>Ejemplos Prof. Ernesto Arbulú</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
-
-<body>
+<div th:fragment="contenido">
 	<div class="container mt-5">
 		<div class="card shadow-lg">
 			<div class="card-body">
 				<h1 class="card-title text-center">Producto Nuevo</h1>
 				<div class="row d-flex justify-content-center">
 					<div class="col-md-6">
-						<form th:action="@{/producto/registrar}" th:object="${producto}" class="row g-2" method="post"
+						<form id="form-producto" th:action="@{/producto/registrar}" th:object="${producto}" class="row g-2" method="post"
 							novalidate>
 							<div class="col-md-12 position-relative">
 								<label for="descripcion" class="form-label"> Descripción </label>
@@ -94,14 +84,26 @@
 		$(document)
 			.ready(
 				function () {
-					$("")
+					$("#form-producto")
 						.validate(
 							{
 								rules: {
-
+									descripcion: {
+										required: true
+									},
+									stock: {
+										required: true,
+										min: 0
+									}
 								},
 								messages: {
-
+									descripcion: {
+										required: "Campo requerido"
+									},
+									stock: {
+										required: "Campo requerido",
+										min: "stock min requerido 0"
+									}
 								},
 								errorElement: 'div',
 								errorClass: 'invalid-tooltip',
@@ -120,5 +122,4 @@
 							});
 				});
 	</script>
-	<th:block th:utext="${alert}"></th:block>
-</body>
+</div>
