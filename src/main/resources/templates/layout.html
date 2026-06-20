@@ -28,7 +28,7 @@
 				<label for="btn-menu"><i class="fa-solid fa-bars"></i></label>
 			</div>
 			<div class="text-white">
-				<h1 class="h5 m-0">CIBERFARMA - Bienvenido, <span th:text="${session.fullName}"></span></h1>
+				<h1 class="h5 m-0">Finanzas - Bienvenido, <span th:text="${session.fullName}"></span></h1>
 			</div>
 		</div>
 	</header>
@@ -40,9 +40,14 @@
 	<div class="container-menu">
 		<div class="cont-menu">
 			<nav>
-				<a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
-				<a th:href="@{/producto/listado}"><i class="fa-solid fa-boxes-stacked"></i> Productos</a>
-				<a th:href="@{/boleta/listado}"><i class="fa-regular fa-file-lines"></i> Boletas</a>
+				<a th:href="@{/dashboard}"><i class="fa-solid fa-house"></i> Inicio</a>
+				<a th:href="@{/producto/listado}"><i class="fa-solid fa-boxes-stacked"></i> Ingresos</a>
+				<a th:href="@{/boleta/gastos}"><i class="fa-regular fa-file-lines"></i> Gastos</a>
+				<a th:href="@{/boleta/presupuesto}"><i class="fa-regular fa-file-lines"></i> Presupuestos</a>
+				<a th:href="@{/boleta/metas}"><i class="fa-regular fa-file-lines"></i> Metas</a>
+				<a th:href="@{/boleta/reportes}"><i class="fa-regular fa-file-lines"></i> Reportes</a>
+				<a th:href="@{/boleta/perfil}"><i class="fa-regular fa-file-lines"></i> Perfil</a>
+										<a th:href="@{/boleta/listado}"><i class="fa-regular fa-file-lines"></i> Configuracion</a>
 				<a href="#" id="cerrarSesionLink"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
 			</nav>
 			<label for="btn-menu"><i class="fa-solid fa-xmark"></i></label>

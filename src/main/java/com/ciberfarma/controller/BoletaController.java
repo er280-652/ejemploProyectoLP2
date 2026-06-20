@@ -36,6 +36,36 @@ public class BoletaController {
 		return "boleta/listado";
 	}
 	
+	@GetMapping("gastos")
+	public String gastos(Model model) {
+		model.addAttribute(boletaService.getAll());
+		return "boleta/gastos";
+	}
+	
+	@GetMapping("presupuesto")
+	public String presupuesto(Model model) {
+		model.addAttribute(boletaService.getAll());
+		return "boleta/presupuesto";
+	}
+	
+	@GetMapping("metas")
+	public String metas(Model model) {
+		model.addAttribute(boletaService.getAll());
+		return "boleta/metas";
+	}
+	
+	@GetMapping("reportes")
+	public String reportes(Model model) {
+		model.addAttribute(boletaService.getAll());
+		return "boleta/reportes";
+	}
+	
+	@GetMapping("perfil")
+	public String perfil(Model model) {
+		model.addAttribute(boletaService.getAll());
+		return "boleta/perfil";
+	}
+	
 	@GetMapping("nuevo")
 	public String nuevo(Model model) {
 		model.addAttribute("productos", productoService.getAll());
