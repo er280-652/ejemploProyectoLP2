@@ -13,45 +13,53 @@
                       method="post"
                       th:object="${usuario}">
 
+
                     <div class="mb-3">
                         <label>Nombres</label>
                         <input type="text"
                                class="form-control"
-                               th:field="*{nombres}">
+                               th:field="*{nombres}"
+                               required>
                     </div>
 
                     <div class="mb-3">
                         <label>Apellidos</label>
                         <input type="text"
                                class="form-control"
-                               th:field="*{apellidos}">
+                               th:field="*{apellidos}"
+                               required>
                     </div>
 
                     <div class="mb-3">
                         <label>Cuenta</label>
                         <input type="text"
                                class="form-control"
-                               th:field="*{cuenta}">
+                               th:field="*{cuenta}"
+                               required>
                     </div>
+
 
                     <div class="mb-3">
                         <label>Clave</label>
                         <input type="password"
                                class="form-control"
-                               th:field="*{clave}">
+                               th:field="*{clave}"
+                               required>
                     </div>
 
                     <div class="mb-3">
                         <label>Tipo</label>
                         <select class="form-select"
-                                th:field="*{tipo.idTipo}">
+                                th:field="*{tipo.idTipo}"
+                                required>
                             <option value="">-- Seleccione --</option>
-                            <option th:each="t : ${tipos}"
-                                    th:value="${t.idTipo}"
-                                    th:text="${t.descripcion}">
+                            <option th:each="item : ${tipos}"
+                                    th:value="${item.idTipo}"
+                                    th:text="${item.descripcion}">
                             </option>
                         </select>
                     </div>
+                    <input type="hidden" th:field="*{activo}" value="true">
 
                     <button class="btn btn-success w-100">
                         Guardar

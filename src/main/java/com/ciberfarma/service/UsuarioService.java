@@ -26,29 +26,55 @@ public class UsuarioService {
 	}
 	
 	public ResultadoResponse create(Usuario usuario) {
-		try {
-			var registro = usuariorepository.save(usuario);
-			var mensaje = String.format("Usuario con ID %s registrado", registro.getIdUsuario());
-			
-			return new ResultadoResponse(true, mensaje);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new ResultadoResponse(false, "Hubo un error en la transacción");
-		}
+	    try {
+
+	        usuario.setActivo(true); 
+
+	        if (usuario.getClave() == null || usuario.getClave().isBlank()) {
+	            return new ResultadoResponse(false, "La clave es obligatoria");
+	        }
+
+	        var registro = usuariorepository.save(usuario);
+
+	        return new ResultadoResponse(true,
+	                "Usuario con ID " + registro.getIdUsuario() + " registrado");
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return new ResultadoResponse(false, "Hubo un error en la transacción");
+	    }
 	}
 	
+	
+	
+	
 	public ResultadoResponse update(Usuario usuario) {
-		try {
-			var registro = usuariorepository.save(usuario);
-			var mensaje = String.format("Usuario con ID %s actualizado", registro.getIdUsuario());
-			
-			return new ResultadoResponse(true, mensaje);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new ResultadoResponse(false, "Hubo un error en la transacción");
-		}
+	    try {
+	        var original = usuariorepository.findById(usuario.getIdUsuario()) .orElseThrow();
+	               
+	        original.setNombres(usuario.getNombres());
+	        original.setApellidos(usuario.getApellidos());
+	        original.setCuenta(usuario.getCuenta());
+	        original.setTipo(usuario.getTipo());
+	        
+	        
+	        original.setActivo(original.getActivo());
+	        original.setClave(original.getClave());
+	        original.setFecha_nac(original.getFecha_nac());
+
+	        var registro = usuariorepository.save(original);
+
+	        var mensaje = String.format("Usuario con ID %s actualizado",registro.getIdUsuario()
+	               
+	        );
+
+	        return new ResultadoResponse(true, mensaje);
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return new ResultadoResponse(false, "Hubo un error en la transacción");
+	            
+	    }
 	}
 	
 	@Transactional
