@@ -6,7 +6,7 @@
 }
 
 body {
-	background-image: url('/imagenes/pharmacy.jpg');
+	background-image: url('/imagenes/loginImage.jpeg');
 	/* ajusta con tu imagen */
 	background-size: cover;
 	background-attachment: fixed;

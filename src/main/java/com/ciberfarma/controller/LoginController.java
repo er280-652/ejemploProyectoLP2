@@ -27,7 +27,7 @@ public class LoginController {
 		var usuario = autenticacionService.autenticathe(filter);
 
 		if (usuario == null) {
-			var mensaje = Alert.sweetAlertError("Cuenta y/o clave inválido");
+			var mensaje = Alert.sweetAlertError("Cuenta o contraseña incorrecta");
 			model.addAttribute("alert", mensaje);
 			model.addAttribute("filter", filter);
 			return "login";
@@ -44,7 +44,7 @@ public class LoginController {
 		session.setAttribute("idUsuario", usuario.getIdUsuario());
 		session.setAttribute("fullName", usuario.getFullName());
 
-		String alert = Alert.sweetImageUrl("Bienvenido a Ciberfarma", usuario.getFullName(), "/imagenes/mapache_pedro.gif");
+		String alert = Alert.sweetImageUrl("Bienvenido " + usuario.getFullName(),"Plataforma de Gestión Financiera", "/imagenes/mapache_pedro.gif");
 		flash.addFlashAttribute("alert", alert);
 		return "redirect:/dashboard";
 	}

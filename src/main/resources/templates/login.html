@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
 	<meta charset="UTF-8">
 	<title>Ejemplos Prof. Ernesto Arbulú - CIBERFARMA - Login</title>
@@ -10,20 +9,16 @@
 	
 	<link rel="stylesheet" th:href="@{/css/login.css}">
 </head>
-
 <body>
 	<div class="container mt-5">
 		<div class="row justify-content-center">
 			<div class="box-login">
-
 				<div class="card shadow-lg">
 					<div class="card-header text-center bg-info text-white">
 						<h3>Proyecto Finanzas</h3>
 					</div>
-
 					<div class="card-body">
 						<h5 class="text-center mb-4">Inicio de Sesión</h5>
-
 						<form th:action="@{/login/iniciar-sesion}" method="get" th:object="${filter}">
 							<div class="mb-3">
 								<label class="form-label">Cuenta</label>
@@ -35,7 +30,6 @@
 									 th:field="*{cuenta}">
 								</div>
 							</div>
-
 							<div class="mb-3">
 								<label class="form-label">Clave</label>
 								<div class="input-group">
@@ -46,7 +40,6 @@
 									 th:field="*{clave}">
 								</div>
 							</div>
-
 							<div class="d-grid">
 								<button type="submit" class="btn btn-dark">
 									<i class="fas fa-sign-in-alt"></i> INGRESAR
@@ -54,7 +47,6 @@
 							</div>
 						</form>
 					</div>
-
 					<div class="card-footer text-muted text-center">
 						&copy; 2026 Finanzas - Todos los derechos reservados
 					</div>
@@ -64,5 +56,4 @@
 	</div>
 	<th:block th:utext="${alert}"></th:block>
 </body>
-
 </html>

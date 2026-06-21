@@ -49,4 +49,8 @@ public class Usuario {
 	public String getFullName() {
 		return String.format("%s %s", nombres, apellidos);
 	}
+	
+	public String getActivoDescripcion() {
+		return activo ? "Activo" : "Inactivo";
+	}
 }
