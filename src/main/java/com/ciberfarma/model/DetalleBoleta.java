@@ -30,7 +30,7 @@ public class DetalleBoleta {
 	@Id
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_producto")
-	private Producto producto;
+	private Movimiento producto;
 	
 	@Column(name="cantidad")
 	private Integer cantidad;
