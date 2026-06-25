@@ -53,4 +53,6 @@ public class Usuario {
 	public String getActivoDescripcion() {
 		return activo ? "Activo" : "Inactivo";
 	}
+	
+	
 }

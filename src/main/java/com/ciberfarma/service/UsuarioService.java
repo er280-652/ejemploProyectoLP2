@@ -36,8 +36,8 @@ public class UsuarioService {
 
 	        var registro = usuariorepository.save(usuario);
 
-	        return new ResultadoResponse(true,
-	                "Usuario con ID " + registro.getIdUsuario() + " registrado");
+	        return new ResultadoResponse(true,"Usuario con ID " + registro.getIdUsuario() + " registrado");
+	                
 
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -50,7 +50,7 @@ public class UsuarioService {
 	
 	public ResultadoResponse update(Usuario usuario) {
 	    try {
-	        var original = usuariorepository.findById(usuario.getIdUsuario()) .orElseThrow();
+	        var original = usuariorepository.findById(usuario.getIdUsuario()).orElseThrow();
 	               
 	        original.setNombres(usuario.getNombres());
 	        original.setApellidos(usuario.getApellidos());

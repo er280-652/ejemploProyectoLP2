@@ -25,6 +25,8 @@ public class BoletaController {
 	private final BoletaService boletaService;
 	private final ProductoService productoService;
 	
+	//producto service no exsite
+	
 	@ModelAttribute("seleccionados")
 	public List<ProductoSeleccionado> inicio(){
 		return new ArrayList<ProductoSeleccionado>();
